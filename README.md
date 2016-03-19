@@ -1,6 +1,4 @@
-# Express Seed Application
-
-A jumping-off point for node+express based web applications.
+# Basic CMS Application
 
 ## included packages:
 
@@ -16,15 +14,14 @@ A jumping-off point for node+express based web applications.
 * es5-shim
 * Knockout
 * Mongoose
-* Passport
 
 ## How to run in development mode:
 
 * clone the app and install dependencies:
 
 ```bash
-git clone git@github.com:immense/express-seed.git
-cd express-seed
+git clone git@github.com:cmckni3/basic-cms.git
+cd basic-cms
 npm install
 bower install
 ```
@@ -53,12 +50,12 @@ grunt
 
 Note: This deploy process is specific to CentOS machines with nginx compiled with the passenger module.
 
-* create a user account on the host machine called `express-seed` and set it up:
+* create a user account on the host machine called `basic-cms` and set it up:
 
 ```bash
-adduser express-seed
-chmod 755 /home/express-seed
-su - express-seed
+adduser basic-cms
+chmod 755 /home/basic-cms
+su - basic-cms
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 ```
@@ -70,8 +67,8 @@ cat ~/.ssh/id_rsa.pub
 ```bash
 mkdir sites
 cd sites
-git clone git@github.com:immense/express-seed.git
-cd express-seed
+git clone git@github.com:cmckni3/basic-cms.git
+cd basic-cms
 npm install
 bower install
 ```
@@ -125,7 +122,3 @@ bower install
 ```bash
 grunt production
 ```
-
-## License
-
-Express Seed is released under the MIT License. Please see the LICENSE file for details.
