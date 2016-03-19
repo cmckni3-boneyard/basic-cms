@@ -1,0 +1,35 @@
+include includes/mixins/index
+doctype html
+html
+  head
+    meta(charset='utf8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', type='text/css', href='/css/app.css')
+    script(type='text/javascript', src='/js/compat.js')
+    title Immense Express Seed
+  body
+    header
+      include includes/mainnav
+    main
+      //if lte IE 8
+        .alert.alert-danger.
+          You are using an <strong>outdated</strong> browser.
+          Please <a href='http://browsehappy.com/'>upgrade your browser</a>
+          to improve your experience.
+      .container
+        .page-header
+          .alerts
+            .error-alert
+            .general-alert
+            .success-alert
+          block page-header
+        block content
+    footer: .container
+      hr
+      p.text-muted: small
+        |Version #{conf.version}
+        if conf.env == 'development'
+          |&nbsp;&mdash; #{conf.branch} &mdash;&nbsp;
+          a(href=conf.hashLink)= conf.hash
+    script(type='text/javascript', src='/js/app.js')
+    block script

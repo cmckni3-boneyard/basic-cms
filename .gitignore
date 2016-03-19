@@ -1,0 +1,14 @@
+node_modules
+bower_components
+builtAssets
+.DS_Store
+.cake_task_cache
+*.un~
+*.log
+app/config/app.coffee
+app/config/logger.coffee
+app/config/mongo.coffee
+app/config/nginx.coffee
+npm-debug.log
+public/*
+log/*

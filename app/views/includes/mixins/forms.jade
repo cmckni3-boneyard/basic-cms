@@ -1,0 +1,46 @@
+mixin form-group(field_name, opts)
+  - var opts = opts || {}
+  - var input_id = field_name.toLowerCase().split(' ').join('-')
+  - var form_group_attrs = opts.form_group_attrs || {}
+  .form-group&attributes(form_group_attrs)
+    unless opts.no_label
+      label.col-sm-2.control-label(for=input_id)
+        = field_name
+        if opts.required
+          |&nbsp;
+          span.required *
+    .col-sm-10(class=(opts.no_label ? 'col-sm-offset-2' : ''))
+      input.form-control(id=input_id)&attributes(attributes)
+      if block
+        block
+
+mixin ko-form-group-immybox(field_name, vm_attr_bind, immybox_array, opts)
+  - var opts = Object.clone(opts) || {}
+  if opts.validations
+    - delete opts.validations
+    - opts.form_group_attrs = {'data-bind': 'css: {\'has-error\': ' + vm_attr_bind + '.hasError() && $root.attempted()}'}
+  if immybox_options = opts.immybox_options
+    - delete opts.immybox_options
+    +form-group(field_name, opts)(data-bind='immybox_choices: ' + immybox_array + ', immybox_value: ' + vm_attr_bind + ', immybox_options: ' + immybox_options)&attributes(attributes)
+      if block
+        block
+  else
+    +form-group(field_name, opts)(data-bind='immybox_choices: ' + immybox_array + ', immybox_value: ' + vm_attr_bind)&attributes(attributes)
+      if block
+        block
+
+mixin ko-form-group(field_name, vm_attr_bind, opts)
+  - var opts = Object.clone(opts) || {}
+  if opts.validations
+    - delete opts.validations
+    - opts.form_group_attrs = {'data-bind': 'css: {\'has-error\': ' + vm_attr_bind + '.hasError() && $root.attempted()}'}
+  +form-group(field_name, opts)(data-bind='value: ' + vm_attr_bind)&attributes(attributes)
+    if block
+      block
+
+mixin ko-form-submit-button
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      button.btn.btn-primary(type="submit", data-bind="click: save")
+        if block
+          block

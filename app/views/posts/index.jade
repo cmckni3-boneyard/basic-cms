@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  a.btn.btn-primary(href="/posts/new") New Post
+  h1 Posts
+
+  ul
+    each post in posts
+      li
+        a(href=("/posts/view/" + post._id))
+          = post.title

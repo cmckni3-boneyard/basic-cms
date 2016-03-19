@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  form
+    .form-group
+      label(for="title") Title
+      input.form-control#title(type="text", data-bind="value: title")
+    .form-group
+      label(for="content") Content
+      textarea.form-control#content(data-bind="value: content")
+    button.btn.btn-primary(type="submit", data-bind="click: save") Submit
+
+block script
+  script
+    :coffee
+      $ -> window.view = new PostFormView();

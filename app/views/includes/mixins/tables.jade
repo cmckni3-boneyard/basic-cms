@@ -1,0 +1,27 @@
+mixin dt-pagination
+  nav: ul.pagination(data-bind='visible: pages() > 1')
+    li(data-bind='css: leftPagerClass, click: prevPage'): a(href='#') &laquo;
+    // ko foreach: (new Array(pages()))
+    li(data-bind='css: $parent.pageClass($index() + 1)')
+      a(href='#', data-bind='text: $index() + 1, click: $parent.gotoPage($index() + 1)')
+    // /ko
+    li(data-bind='css: rightPagerClass, click: nextPage'): a(href='#') &raquo;
+
+mixin dt-new-record-link(href)
+  a.new-record-link(data-bind="attr: {href: " + (href ? ('"' + href + '"') : '"/" + options.recordWord + "s/new"') + "}")
+    i.fa.fa-plus &nbsp;
+    // ko text: "Add a new " + options.recordWord
+    // /ko
+
+mixin dt-search-input(opts)
+  - var opts = opts || {}
+  - var binder = opts.instant ? 'instant' : 'value'
+  .input-group
+    .input-group-addon Filter
+    input.form-control(type="text", placeholder="Type something", data-bind=(binder + ": filter"))
+    .input-group-addon: a(href="#", data-bind="click: function(){filter('')}") Clear
+
+mixin new-record-link(name, href)
+  a.new-record-link(href=href)
+    i.fa.fa-plus
+    |&nbsp;Add a new #{name}

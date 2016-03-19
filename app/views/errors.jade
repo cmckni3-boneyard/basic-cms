@@ -1,0 +1,27 @@
+extends layout
+
+block page-header
+  h1 Error tests
+
+block content
+  p These are the standard error pages you might see.
+
+  ul
+    li: a(href='/404') 404
+    li: a(href='/500') 500
+
+  p View console output to see AJAX serving the errors as JSON.
+
+block script
+  script(type='text/javascript')
+    :coffeescript
+      $ ->
+        console.log 'waiting 2 seconds before doing ajax stuff...'
+        setTimeout ->
+          console.log '<------------------->'
+          req3 = $.getJSON '/404'
+          req3.fail (jqXHR, textStatus, errorThrown) -> console.log 'response to "GET /404": ', jqXHR.responseJSON
+
+          req4 = $.getJSON '/500'
+          req4.fail (jqXHR, textStatus, errorThrown) -> console.log 'response to "GET /500": ', jqXHR.responseJSON
+        , 2000

@@ -1,0 +1,52 @@
+{
+  "name": "posts",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:immense/express-seed.git",
+    "web": "https://github.com/immense/express-seed"
+  },
+  "scripts": {
+    "start": "echo Deprecated: run with nginx+passenger in production"
+  },
+  "dependencies": {
+    "active-tags": "~0.1.1",
+    "body-parser": "~1.9.2",
+    "coffee-script": "~1.8.0",
+    "compression": "~1.2.0",
+    "cookie-parser": "~1.3.3",
+    "express": "~4.10.2",
+    "ff": "~0.2.1",
+    "jade": "~1.7.0",
+    "log4js": "~0.6.21",
+    "method-override": "~2.3.0",
+    "mongoose": "~3.8.19",
+    "serve-favicon": "~2.1.3",
+    "sugar": "~1.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "~4.0.0",
+    "glob": "~4.1.5",
+    "grunt": "~0.4.5",
+    "grunt-concurrent": "~1.0.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-coffee": "~0.12.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-jade": "~0.13.0",
+    "grunt-contrib-less": "~0.12.0",
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-exec": "~0.4.6",
+    "grunt-nodemon": "~0.3.0",
+    "grunt-postcss": "~0.2.0",
+    "grunt-shell": "~1.1.1",
+    "grunt-touch": "~0.1.0",
+    "load-grunt-tasks": "~1.0.0",
+    "mustache": "~0.8.2"
+  },
+  "engines": {
+    "node": "~0.10"
+  }
+}
